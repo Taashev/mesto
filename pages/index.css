@@ -1,0 +1,15 @@
+/** normalize ============================= */
+@import url(../vendor/normalize.css);
+
+
+/** fonts ================================= */
+/* Inter */
+@import url(../vendor/fonts/Inter/inter.css);
+
+
+/* body =================================== */
+@import url(../blocks/body/body.css);
+
+
+/* page =================================== */
+@import url(../blocks/page/page.css);
