@@ -1,7 +1,19 @@
 .header {
+  box-sizing: border-box;
   width: 100%;
   min-height: 120px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 1023px) {
+  .header {
+    padding: 0 27px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    min-height: 82px;
+  }
 }

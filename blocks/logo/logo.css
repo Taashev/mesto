@@ -4,3 +4,10 @@
   object-fit: cover;
   object-position: center;
 }
+
+@media (max-width: 424px) {
+  .logo {
+    width: 103px;
+    height: 24px;
+  }
+}

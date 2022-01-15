@@ -1,0 +1,10 @@
+.link {
+  display: inline-block;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.link:hover {
+  opacity: .6;
+}
