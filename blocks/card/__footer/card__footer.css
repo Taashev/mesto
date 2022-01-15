@@ -1,0 +1,11 @@
+.card__footer {
+  box-sizing: border-box;
+  padding: 21px;
+  min-height: 80px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}

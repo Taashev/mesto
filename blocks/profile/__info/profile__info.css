@@ -1,5 +1,12 @@
 .profile__info {
   position: relative;
+  width: 336px;
+}
+
+@media (max-width: 767px) {
+  .profile__info {
+    width: 250px;
+  }
 }
 
 @media (max-width: 424px) {

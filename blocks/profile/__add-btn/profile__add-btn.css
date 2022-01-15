@@ -1,10 +1,17 @@
 .profile__add-btn {
   padding: 0;
-  margin-left: auto;
+  margin: 0 0 0 auto;
   width: 150px;
   height: 50px;
   border: 1px solid #fff;
   background: url(../../../images/ico/add-button.svg) no-repeat center/22px 22px;
+}
+
+@media (max-width: 767px) {
+  .profile__add-btn {
+    grid-column: 1/-1;
+    margin-right: 40px;
+  }
 }
 
 @media (max-width: 424px) {

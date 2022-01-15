@@ -4,20 +4,20 @@
   display: grid;
   gap: 29px;
   align-items: center;
-  grid-template-columns: 120px 336px 1fr;
+  grid-template-columns: 120px 1fr 1fr;
 }
 
 @media (max-width: 767px) {
   .profile {
     column-gap: 15px;
-    grid-template-columns: 120px 250px;
+    grid-template-columns: 120px 1fr;
   }
 }
 
 @media (max-width: 424px) {
   .profile {
-    padding-top: 42px;
     justify-items: center;
+    padding-top: 42px;
     grid-template-columns: 1fr;
   }
 }

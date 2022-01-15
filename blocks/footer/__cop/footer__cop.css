@@ -1,0 +1,11 @@
+.footer__cop {
+  font-size: 18px;
+  line-height: 1.2;
+  color: #545454;
+}
+
+@media (max-width: 424px) {
+  .footer__cop {
+    font-size: 14px;
+  }
+}
