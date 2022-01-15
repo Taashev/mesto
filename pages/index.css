@@ -97,6 +97,6 @@
 /* __user-name */
 @import url(../blocks/popup/__user-name/popup__user-name.css);
 /* __user-status */
-@import url(../blocks/popup/__user-status/popup__user-status.css);
+@import url(../blocks/popup/__about-me/popup__about-me.css);
 /* __submit */
 @import url(../blocks/popup/__submit/popup__submit.css);
