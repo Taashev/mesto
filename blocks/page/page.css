@@ -11,6 +11,7 @@
   background-color: #000;
   /* Настройки основго шрифта страницы */
   font-size: 24px;
+  font-weight: 400;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;

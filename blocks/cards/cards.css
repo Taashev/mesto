@@ -5,11 +5,12 @@
   grid-template-columns: repeat(auto-fit, 282px);
   row-gap: 19px;
   column-gap: 17px;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .cards {
+    column-gap: 30px;
     padding-top: 36px;
   }
 }

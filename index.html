@@ -8,6 +8,7 @@
 	<title>Mesto</title>
 </head>
 <body class="body">
+  <!-- page -->
 	<div class="page">
 
     <!-- header -->
@@ -18,58 +19,56 @@
     <main class="content">
       <!-- profile -->
       <section class="profile">
-        <img class="profile__img" src="./images/photo.jpg" alt="Аватарка">
+        <img class="profile__img" src="./images/aleksandr.jpg" alt="Аватарка">
         <div class="profile__info">
-          <!-- <h1 class="profile__title">Александр Никольский</h1> -->
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title">Александр Никольский</h1>
           <button class="profile__edit-btn link" type="button"></button>
-          <!-- <p class="profile__subtitle">Наставник "Яндекс.Практикум" &#128077;</p> -->
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle">Наставник "Яндекс.Практикум" &#128077;</p>
         </div>
         <button class="profile__add-btn link" type="button"></button>
       </section>
       <!-- cards -->
       <section class="cards">
         <figure class="card">
-          <img class="card__img" src="./images/photo/1.jpg" alt="Карачаевск">
+          <img class="card__img" src="./images/photo/1.jpg" alt="Фото.1">
           <figcaption class="card__footer">
-            <p class="card__text">Карачаевск</p>
+            <p class="card__text">С новым годом!</p>
             <span class="card__like"></span>
           </figcaption>
         </figure>
         <figure class="card">
-          <img class="card__img" src="./images/photo/2.jpg" alt="Карачаевск">
+          <img class="card__img" src="./images/photo/2.jpg" alt="Фото.2">
           <figcaption class="card__footer">
-            <p class="card__text">Гора Эльбрус</p>
+            <p class="card__text">Май френд</p>
             <span class="card__like"></span>
           </figcaption>
         </figure>
         <figure class="card">
-          <img class="card__img" src="./images/photo/3.jpg" alt="Карачаевск">
+          <img class="card__img" src="./images/photo/3.jpg" alt="Фото.3">
           <figcaption class="card__footer">
-            <p class="card__text">Домбай</p>
+            <p class="card__text">#фрилансим</p>
             <span class="card__like"></span>
           </figcaption>
         </figure>
         <figure class="card">
-          <img class="card__img" src="./images/photo/4.jpg" alt="Карачаевск">
+          <img class="card__img" src="./images/photo/4.jpg" alt="Фото.4">
           <figcaption class="card__footer">
-            <p class="card__text">Гора Эльбрус</p>
+            <p class="card__text">Та самая</p>
             <span class="card__like"></span>
           </figcaption>
         </figure>
         <figure class="card">
-          <img class="card__img" src="./images/photo/5.jpg" alt="Карачаевск">
+          <img class="card__img" src="./images/photo/5.jpg" alt="Фото.5">
           <figcaption class="card__footer">
-            <p class="card__text">Домбай</p>
+            <p class="card__text">На чиле</p>
             <span class="card__like"></span>
           </figcaption>
         </figure>
         <figure class="card">
-          <img class="card__img" src="./images/photo/6.jpg" alt="Карачаевск">
+          <img class="card__img" src="./images/photo/6.jpg" alt="Фото.6">
           <figcaption class="card__footer">
-            <p class="card__text">Карачаево-Черкесия</p>
-            <span class="card__like"></span>
+            <p class="card__text">#наудаленке</p>
+            <span class="card__like card__like_active"></span>
           </figcaption>
         </figure>
       </section>
@@ -78,6 +77,17 @@
     <footer class="footer">
       <p class="footer__cop">© 2020 Mesto Russia</p>
     </footer>
+
+    <!-- popup -->
+    <div class="popup">
+      <form class="popup__container" action="#">
+        <span class="popup__close link"></span>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__user-name input" type="text" name="username" placeholder="Имя" required>
+        <input class="popup__user-status input" type="text" name="userstatus" placeholder="Статус">
+        <button class="popup__submit button" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
 <script src="./script/index.js"></script>
 </body>

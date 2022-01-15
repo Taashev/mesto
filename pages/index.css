@@ -7,12 +7,19 @@
 @import url(../vendor/fonts/Inter/inter.css);
 
 
-/** link ================================== */
+/** Дефолтные стили элементов */
+/* link */
 @import url(../blocks/link/link.css);
+/* input */
+@import url(../blocks/input/input.css);
+/* button */
+@import url(../blocks/button/button.css);
 
 
 /* body =================================== */
 @import url(../blocks/body/body.css);
+/* _scroll */
+@import url(../blocks/body/_scroll/body_scroll.css);
 
 
 /* page =================================== */
@@ -65,9 +72,15 @@
 @import url(../blocks/card/__text/card__text.css);
 /* __like */
 @import url(../blocks/card/__like/card__like.css);
+/* __like_active */
+@import url(../blocks/card/__like/_active/card__like_active.css);
 
 
 /* footer ================================= */
 @import url(../blocks/footer/footer.css);
 /* __cop */
 @import url(../blocks/footer/__cop/footer__cop.css);
+
+
+/* popup ================================== */
+@import url(../blocks/popup/popup.css);
