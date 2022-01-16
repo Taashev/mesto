@@ -60,6 +60,10 @@
 
 /* cards ============================ */
 @import url(../blocks/cards/cards.css);
+/* __items */
+@import url(../blocks/cards/__items/cards__items.css);
+/* __item */
+@import url(../blocks/cards/__item/cards__item.css);
 
 
 /* card =================================== */

@@ -1,16 +1,10 @@
 .cards {
   box-sizing: border-box;
   padding: 51px 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 282px);
-  row-gap: 19px;
-  column-gap: 17px;
-  justify-content: center;
 }
 
 @media (max-width: 1024px) {
   .cards {
-    column-gap: 30px;
-    padding-top: 39px;
+    padding-top: 36px;
   }
 }

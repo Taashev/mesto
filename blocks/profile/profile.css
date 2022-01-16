@@ -17,7 +17,7 @@
 @media (max-width: 424px) {
   .profile {
     justify-items: center;
-    padding-top: 42px;
+    padding-top: 45px;
     grid-template-columns: 1fr;
   }
 }
