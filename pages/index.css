@@ -19,7 +19,7 @@
 /* body =================================== */
 @import url(../blocks/body/body.css);
 /* _scroll */
-@import url(../blocks/body/_scroll/body_scroll.css);
+@import url(../blocks/body/_no-scroll/body_no-scroll.css);
 
 
 /* page =================================== */

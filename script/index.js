@@ -1,12 +1,27 @@
+let body = document.querySelector('body');
 let page = document.querySelector('.page');
-let editButton = page.querySelector('.profile__edit-btn')
-let popupProfile = page.querySelector('.popup_type_profile');
+let buttonEdit = page.querySelector('.profile__edit-btn')
+let popupEditProfile = page.querySelector('.popup_type_profile');
 
-function popupOpen(btn, open) {
-  btn.addEventListener('click', function() {
-    open.classList.add('popup_opened');
+
+// popupOpen
+function popupOpen(btnOpen, open) {
+  btnOpen.addEventListener('click', function() {
+    body.classList.add('body_no-scroll');
+    open.classList.toggle('popup_opened');
   });
 };
 
-popupOpen(editButton, popupProfile);
+popupOpen(buttonEdit, popupEditProfile);
 
+// popupClose
+function popupClose(popClose) {
+  let popupClose = page.querySelector('.popup__close');
+
+  popupClose.addEventListener('click', function () {
+    body.classList.remove('body_no-scroll');
+    popClose.classList.remove('popup_opened');
+  });
+};
+
+popupClose(popupEditProfile);
