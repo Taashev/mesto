@@ -9,23 +9,23 @@ let profileUserAbout = page.querySelector('.profile__user-about');
 
 
 // popup profile open end close
-  buttonEdit.addEventListener('click', function() {
-    body.classList.add('body_no-scroll');
-    popupProfile.classList.toggle('popup_opened');
+buttonEdit.addEventListener('click', function() {
+  body.classList.add('body_no-scroll');
+  popupProfile.classList.toggle('popup_opened');
 
-    nameInput.value = profileUserName.textContent;
-    jobInput.value = profileUserAbout.textContent;
+  nameInput.value = profileUserName.textContent;
+  jobInput.value = profileUserAbout.textContent;
+});
+
+function popupClose(button) {
+  button.addEventListener('click', function() {
+    body.classList.remove('body_no-scroll');
+    popupProfile.classList.remove('popup_opened');
   });
+};
 
-  function popupClose(button) {
-    button.addEventListener('click', function() {
-      body.classList.remove('body_no-scroll');
-      popupProfile.classList.remove('popup_opened');
-    });
-  };
-
-  popupClose(popupButtonClose);
-  popupClose(popupButtonSubmit);
+popupClose(popupButtonClose);
+popupClose(popupButtonSubmit);
 
 
 // save edit form profile
