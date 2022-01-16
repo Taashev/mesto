@@ -1,51 +1,53 @@
 let body = document.querySelector('body');
 let page = document.querySelector('.page');
+// let profile
 let buttonEdit = page.querySelector('.profile__edit-btn')
-let popupButtonClose = page.querySelector('.popup__close');
-let popupButtonSubmit = page.querySelector('.popup__submit')
-let popupProfile = page.querySelector('.popup_type_profile');
 let profileUserName = page.querySelector('.profile__user-name');
 let profileUserAbout = page.querySelector('.profile__user-about');
+// let popup
+let popupProfile = page.querySelector('.popup_type_profile');
+let popupForm = page.querySelector('.popup__container');
+let popupNameInput = popupForm.querySelector('.popup__user-name');
+let popupAboutMeInput = popupForm.querySelector('.popup__about-me');
+let popupButtonClose = page.querySelector('.popup__close');
+let popupButtonSubmit = page.querySelector('.popup__submit')
 
 
-// popup profile open end close
+// popup open
 buttonEdit.addEventListener('click', function() {
   body.classList.add('body_no-scroll');
   popupProfile.classList.toggle('popup_opened');
 
-  nameInput.value = profileUserName.textContent;
-  jobInput.value = profileUserAbout.textContent;
+  popupNameInput.value = profileUserName.textContent;
+  popupAboutMeInput.value = profileUserAbout.textContent;
 });
 
-function popupClose(button) {
-  button.addEventListener('click', function() {
+
+// popup close
+  popupButtonClose.addEventListener('click', function() {
     body.classList.remove('body_no-scroll');
     popupProfile.classList.remove('popup_opened');
   });
-};
-
-popupClose(popupButtonClose);
-popupClose(popupButtonSubmit);
 
 
-// save edit form profile
-let formElement = page.querySelector('.popup__container');
-let nameInput = formElement.querySelector('.popup__user-name');
-let jobInput = formElement.querySelector('.popup__about-me');
+// popup btn submit
+popupButtonSubmit.addEventListener('click', function() {
+  let validationInputName = popupNameInput.value.length;
 
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
+  if (validationInputName > 0) {
+    body.classList.remove('body_no-scroll');
+    popupProfile.classList.remove('popup_opened');
+  }
+});
+
+
+// handler form
 function formSubmitHandler(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
-  // Получите значение полей jobInput и nameInput из свойства value
-  let nameInputValue = nameInput.value;
-  let jobInputValue = jobInput.value;
-  // Вставьте новые значения с помощью textContent
-  profileUserName.textContent = nameInputValue;
-  profileUserAbout.textContent = jobInputValue;
+  profileUserName.textContent = popupNameInput.value;
+  profileUserAbout.textContent = popupAboutMeInput.value;
 }
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
+// Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
+popupForm.addEventListener('submit', formSubmitHandler);
