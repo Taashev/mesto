@@ -1,4 +1,4 @@
-.profile__title {
+.profile__user-name {
   margin: 0 0 9px 0;
   max-width: 300px;
   font-size: 42px;
@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 767px) {
-  .profile__title {
+  .profile__user-name {
     max-width: 220px;
     font-size: 31px;
     line-height: 1.2;
@@ -17,7 +17,7 @@
 }
 
 @media (max-width: 424px) {
-  .profile__title {
+  .profile__user-name {
     font-size: 27px;
   }
 }

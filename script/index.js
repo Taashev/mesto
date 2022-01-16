@@ -1,30 +1,30 @@
 let body = document.querySelector('body');
 let page = document.querySelector('.page');
+
+
+// popup Open end Close
 let buttonEdit = page.querySelector('.profile__edit-btn')
-let popupEditProfile = page.querySelector('.popup_type_profile');
+let popupProfile = page.querySelector('.popup_type_profile');
 
-
-// popupOpen
-function popupOpen(btnOpen, open) {
-  btnOpen.addEventListener('click', function() {
+function popupOpen(btn, popup) {
+  btn.addEventListener('click', function() {
     body.classList.add('body_no-scroll');
-    open.classList.toggle('popup_opened');
+    popup.classList.toggle('popup_opened');
   });
 };
 
-popupOpen(buttonEdit, popupEditProfile);
+popupOpen(buttonEdit, popupProfile);
 
-// popupClose
-function popupClose(popClose) {
-  let popupClose = page.querySelector('.popup__close');
+function popupClose(popup) {
+  let popupButtonClose = page.querySelector('.popup__close');
 
-  popupClose.addEventListener('click', function () {
+  popupButtonClose.addEventListener('click', function() {
     body.classList.remove('body_no-scroll');
-    popClose.classList.remove('popup_opened');
+    popup.classList.remove('popup_opened');
   });
 };
 
-popupClose(popupEditProfile);
+popupClose(popupProfile);
 
 
 // save profile changes
@@ -34,6 +34,11 @@ let formElement = page.querySelector('.popup__container');
 let nameInput = formElement.querySelector('.popup__user-name');
 let jobInput = formElement.querySelector('.popup__about-me');
 
+let profileUserName = page.querySelector('.profile__user-name');
+let profileUserAbout = page.querySelector('.profile__user-about');
+nameInput.value = profileUserName.textContent;
+jobInput.value = profileUserAbout.textContent;
+
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formSubmitHandler(evt) {
@@ -42,13 +47,12 @@ function formSubmitHandler(evt) {
   // Получите значение полей jobInput и nameInput из свойства value
   let nameInputValue = nameInput.value;
   let jobInputValue = jobInput.value;
-  // Выберите элементы, куда должны быть вставлены значения полей
-  let profileTitle = page.querySelector('.profile__title');
-  let profileSubtitle = page.querySelector('.profile__subtitle');
   // Вставьте новые значения с помощью textContent
-  profileTitle.textContent = nameInputValue;
-  profileSubtitle.textContent = jobInputValue;
+  profileUserName.textContent = nameInputValue;
+  profileUserAbout.textContent = jobInputValue;
 }
+
+
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»

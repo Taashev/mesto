@@ -1,4 +1,4 @@
-.profile__subtitle {
+.profile__user-about {
   margin: 0;
   font-size: 18px;
   line-height: 1.2;
@@ -7,7 +7,7 @@
 }
 
 @media (max-width: 424px) {
-  .profile__subtitle {
+  .profile__user-about {
     font-size: 14px;
   }
 }
