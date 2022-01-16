@@ -25,3 +25,31 @@ function popupClose(popClose) {
 };
 
 popupClose(popupEditProfile);
+
+
+// save profile changes
+// Находим форму в DOM
+let formElement = page.querySelector('.popup__container');
+// Находим поля формы в DOM
+let nameInput = formElement.querySelector('.popup__user-name');
+let jobInput = formElement.querySelector('.popup__about-me');
+
+// Обработчик «отправки» формы, хотя пока
+// она никуда отправляться не будет
+function formSubmitHandler(evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+
+  // Получите значение полей jobInput и nameInput из свойства value
+  let nameInputValue = nameInput.value;
+  let jobInputValue = jobInput.value;
+  // Выберите элементы, куда должны быть вставлены значения полей
+  let profileTitle = page.querySelector('.profile__title');
+  let profileSubtitle = page.querySelector('.profile__subtitle');
+  // Вставьте новые значения с помощью textContent
+  profileTitle.textContent = nameInputValue;
+  profileSubtitle.textContent = jobInputValue;
+}
+
+// Прикрепляем обработчик к форме:
+// он будет следить за событием “submit” - «отправка»
+formElement.addEventListener('submit', formSubmitHandler);
