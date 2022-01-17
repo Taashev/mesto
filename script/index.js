@@ -5,12 +5,14 @@ let buttonEdit = page.querySelector('.profile__edit-btn')
 let profileUserName = page.querySelector('.profile__user-name');
 let profileUserAbout = page.querySelector('.profile__user-about');
 // let popup
+let popup = page.querySelector('.popup');
+let popupForm = popup.querySelector('.popup__container');
+let popupButtonClose = popupForm.querySelector('.popup__close');
+let popupButtonSubmit = popupForm.querySelector('.popup__submit')
+// let popup edit profile
 let popupProfile = page.querySelector('.popup_type_profile');
-let popupForm = page.querySelector('.popup__container');
-let popupNameInput = popupForm.querySelector('.popup__user-name');
-let popupAboutMeInput = popupForm.querySelector('.popup__about-me');
-let popupButtonClose = page.querySelector('.popup__close');
-let popupButtonSubmit = page.querySelector('.popup__submit')
+let popupNameInput = popupProfile.querySelector('.popup__user-name');
+let popupAboutMeInput = popupProfile.querySelector('.popup__about-me');
 
 
 // popup open
@@ -24,10 +26,10 @@ buttonEdit.addEventListener('click', function() {
 
 
 // popup close
-  popupButtonClose.addEventListener('click', function() {
-    body.classList.remove('body_no-scroll');
-    popupProfile.classList.remove('popup_opened');
-  });
+popupButtonClose.addEventListener('click', function() {
+  body.classList.remove('body_no-scroll');
+  popupProfile.classList.remove('popup_opened');
+});
 
 
 // popup btn submit

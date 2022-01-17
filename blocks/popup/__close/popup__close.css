@@ -1,17 +1,56 @@
 .popup__close {
   border: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
   position: absolute;
   top: -35px;
   right: -35px;
-  width: 32px;
-  height: 32px;
-  background: url(../../../images/ico/close.svg) no-repeat center/cover;
+  /* background: url(../../../images/ico/close.svg) no-repeat center/cover; */
+  background: transparent;
 }
 
+/* кастомный крестик закрытия попап */
+.popup__close::before, .popup__close:after {
+  content: '';
+  background: #fff;
+  width: 40px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: close .3s linear;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: 1s;
+}
+
+.popup__close::after {
+  content: '';
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@keyframes close {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+.popup__close:active::before, .popup__close:active::after {
+  transform: translate(-50%, -50%) rotate(360deg);
+}
+
+/* media */
 @media (max-width: 767px) {
   .popup__close {
     width: 20px;
     height: 20px;
     right: 0;
+  }
+  .popup__close:before, .popup__close:after {
+    width: 25px;
+    height: 3px;
   }
 }
