@@ -11,13 +11,13 @@
   transition: .4s;
 }
 
-.popup__close:active {
-  transform: rotate(40deg);
+.popup__close:hover {
+  transform: rotate(25deg);
 }
 
 @keyframes close {
   0% {
-    transform: rotate(40deg);
+    transform: rotate(30deg);
   }
   100% {
     transform: rotate(0deg);

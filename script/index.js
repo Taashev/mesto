@@ -2,20 +2,20 @@ let body = document.querySelector('body');
 let page = document.querySelector('.page');
 // let profile
 let buttonEdit = page.querySelector('.profile__edit-btn')
-let profileUserName = page.querySelector('.profile__user-name');
-let profileUserAbout = page.querySelector('.profile__user-about');
+let UserName = page.querySelector('.profile__user-name');
+let UserAbout = page.querySelector('.profile__user-about');
 // let popup
 let popup = page.querySelector('.popup');
-let popupForm = popup.querySelector('.popup__form');
-let popupButtonClose = popupForm.querySelector('.popup__close');
-let popupButtonSave = popupForm.querySelector('.popup__button_type_save')
+let popupForm = page.querySelector('.popup__form');
+let popupButtonClose = page.querySelector('.popup__close');
+let popupButtonSave = page.querySelector('.popup__button_type_save')
 // let popup edit profile
 let popupProfile = page.querySelector('.popup_type_profile');
-let popupInputName = popupProfile.querySelector('.popup__user-name');
-let popupInputAbout = popupProfile.querySelector('.popup__about-me');
+let popupInputName = page.querySelector('.popup__user-name');
+let popupInputAbout = page.querySelector('.popup__about-me');
 
 
-// popup open
+// открыть попап
 function popupOpen(pop) {
   // открываем переданный попап
   pop.classList.add('popup_opened');
@@ -24,8 +24,8 @@ function popupOpen(pop) {
 
   // если открыт попап ред.проф. передаем "имя" и "о себе" со страницы в значения инпут
   if (pop === popupProfile) {
-    popupInputName.value = profileUserName.textContent;
-    popupInputAbout.value = profileUserAbout.textContent;
+    popupInputName.value = UserName.textContent;
+    popupInputAbout.value = UserAbout.textContent;
   }
 };
 
@@ -35,7 +35,7 @@ buttonEdit.addEventListener('click', function() {
 });
 
 
-// popup close
+// закрыть попап
 popupButtonClose.addEventListener('click', function() {
     // закрываем попап
     popup.classList.remove('popup_opened');
@@ -44,14 +44,15 @@ popupButtonClose.addEventListener('click', function() {
 });
 
 
+
 // handler form
 function formSubmitHandler(evt) {
   // Эта строчка отменяет стандартную отправку формы.
   evt.preventDefault();
 
   // передаем внесенные изминения "имя" и "о себе" на страницу
-  profileUserName.textContent = popupInputName.value;
-  profileUserAbout.textContent = popupInputAbout.value;
+  UserName.textContent = popupInputName.value;
+  UserAbout.textContent = popupInputAbout.value;
 
   // валидация инпут "имя" на пустое поле
   let validationInputName = popupInputName.value.length;
