@@ -4,23 +4,23 @@
   width: 32px;
   height: 32px;
   position: absolute;
-  top: -35px;
-  right: -35px;
+  top: -38px;
+  right: -38px;
   background: url(../../../images/ico/close.svg) no-repeat center/cover;
   animation: close .2s linear;
   transition: .4s;
 }
 
 .popup__close:active {
-  transform: scale(0);
+  transform: rotate(40deg);
 }
 
 @keyframes close {
   0% {
-    transform: scale(0);
+    transform: rotate(40deg);
   }
   100% {
-    transform: scale(1);
+    transform: rotate(0deg);
   }
 }
 

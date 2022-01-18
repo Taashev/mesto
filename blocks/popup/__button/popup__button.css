@@ -1,26 +1,28 @@
-.button {
-  border: none;
+.popup__button {
   box-sizing: border-box;
-  padding: 12px;
   display: inline-block;
   width: 100%;
   max-width: 360px;
+  margin-top: auto;
+  padding: 12px;
+  border: none;
+  border-radius: 2px;
   font-size: 18px;
   line-height: 1.2;
   text-align: center;
   color: #fff;
   background-color: #000;
-  border-radius: 2px;
   cursor: pointer;
   transition: .3s;
 }
 
-.button:hover {
+.popup__button:hover {
   opacity: .8;
 }
 
 @media (max-width: 424px) {
-  .button {
+  .popup__button {
+    margin-top: 50px;
     font-size: 14px;
   }
 }
