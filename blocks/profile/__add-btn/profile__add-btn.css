@@ -9,13 +9,6 @@
 
 @media (max-width: 767px) {
   .profile__add-btn {
-    grid-column: 1/-1;
-    margin: 0 70px 0 auto;
-  }
-}
-
-@media (max-width: 631px) {
-  .profile__add-btn {
     width: 282px;
     background-size: 16px 16px;
     margin: 0 auto;

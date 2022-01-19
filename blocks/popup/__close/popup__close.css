@@ -7,21 +7,7 @@
   top: -38px;
   right: -38px;
   background: url(../../../images/ico/close.svg) no-repeat center/cover;
-  animation: close .2s linear;
   transition: .4s;
-}
-
-.popup__close:hover {
-  transform: rotate(25deg);
-}
-
-@keyframes close {
-  0% {
-    transform: rotate(30deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
 }
 
 /* media */

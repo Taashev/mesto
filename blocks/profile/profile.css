@@ -1,23 +1,15 @@
 .profile {
   box-sizing: border-box;
   padding: 39px 0 0;
-  display: grid;
-  gap: 29px;
+  display: flex;
+  gap: 31px;
   align-items: center;
-  grid-template-columns: 120px 1fr 1fr;
 }
 
 @media (max-width: 767px) {
   .profile {
-    column-gap: 15px;
-    grid-template-columns: 120px 1fr;
-  }
-}
-
-@media (max-width: 424px) {
-  .profile {
-    justify-items: center;
     padding-top: 45px;
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 25px;
   }
 }

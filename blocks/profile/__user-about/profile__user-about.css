@@ -1,13 +1,16 @@
 .profile__user-about {
   margin: 0;
+  max-width: 375px;
   font-size: 18px;
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
+  grid-column: 1/-1;
 }
 
 @media (max-width: 424px) {
   .profile__user-about {
+    grid-column: 2/auto;
     font-size: 14px;
   }
 }

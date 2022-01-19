@@ -1,6 +1,5 @@
 .popup__button {
   box-sizing: border-box;
-  display: inline-block;
   width: 100%;
   max-width: 360px;
   margin-top: auto;
