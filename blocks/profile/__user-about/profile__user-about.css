@@ -1,10 +1,11 @@
 .profile__user-about {
   margin: 0;
-  max-width: 375px;
+  max-width: 336px;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   grid-column: 1/-1;
 }
 

@@ -21,88 +21,76 @@
         <section class="profile">
           <img class="profile__img" src="./images/photo.jpg" alt="Аватарка">
           <div class="profile__info">
-            <!-- <h1 class="profile__user-name">Александр</h1> -->
             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-btn link" type="button"></button>
-            <!-- <p class="profile__user-about">Наставник "Яндекс.Практикум" &#128077;</p> -->
+            <button class="profile__edit-btn hover" type="button" aria-label="редактировать профиль"></button>
             <p class="profile__user-about">Исследователь океана</p>
           </div>
-          <button class="profile__add-btn link" type="button"></button>
+          <button class="profile__add-btn hover" type="button" aria-label="добавить новое фото"></button>
         </section>
-        <!-- cards -->
-        <section class="cards">
-					<ul class="cards__items">
-						<li class="cards__item">
-							<figure class="card">
-								<img class="card__img" src="./images/photo/1.jpg" alt="Фото.1">
-								<figcaption class="card__footer">
-									<h2 class="card__text">С новым годом!</h2>
-									<button class="card__like" type="button"></button>
-								</figcaption>
-							</figure>
+        <!-- card -->
+        <section class="card">
+					<ul class="card__items">
+						<li class="card__item">
+              <img class="card__img" src="./images/photo/1.jpg" alt="Фото.1">
+              <div class="card__footer">
+                <h2 class="card__text">С новым годом!</h2>
+                <button class="card__like" type="button" aria-label="лайк"></button>
+              </div>
 						</li>
-						<li class="cards__item">
-							<figure class="card">
-								<img class="card__img" src="./images/photo/2.jpg" alt="Фото.2">
-								<figcaption class="card__footer">
-									<h2 class="card__text">Май френд</h2>
-									<button class="card__like" type="button"></button>
-								</figcaption>
-							</figure>
+						<li class="card__item">
+              <img class="card__img" src="./images/photo/2.jpg" alt="Фото.2">
+              <div class="card__footer">
+                <h2 class="card__text">Май френд</h2>
+                <button class="card__like" type="button" aria-label="лайк"></button>
+              </div>
 						</li>
-						<li class="cards__item">
-							<figure class="card">
-								<img class="card__img" src="./images/photo/3.jpg" alt="Фото.3">
-								<figcaption class="card__footer">
-									<h2 class="card__text">#фрилансим</h2>
-									<button class="card__like" type="button"></button>
-								</figcaption>
-							</figure>
+						<li class="card__item">
+              <img class="card__img" src="./images/photo/3.jpg" alt="Фото.3">
+              <div class="card__footer">
+                <h2 class="card__text">#фрилансим</h2>
+                <button class="card__like" type="button" aria-label="лайк"></button>
+              </div>
 						</li>
-						<li class="cards__item">
-							<figure class="card">
-								<img class="card__img" src="./images/photo/4.jpg" alt="Фото.4">
-								<figcaption class="card__footer">
-									<h2 class="card__text">Та самая</h2>
-									<button class="card__like" type="button"></button>
-								</figcaption>
-							</figure>
+						<li class="card__item">
+              <img class="card__img" src="./images/photo/4.jpg" alt="Фото.4">
+              <div class="card__footer">
+                <h2 class="card__text">Та самая</h2>
+                <button class="card__like" type="button" aria-label="лайк"></button>
+              </div>
 						</li>
-						<li class="cards__item">
-							<figure class="card">
-								<img class="card__img" src="./images/photo/5.jpg" alt="Фото.5">
-								<figcaption class="card__footer">
-									<h2 class="card__text">На чиле</h2>
-									<button class="card__like" type="button"></button>
-								</figcaption>
-							</figure>
+						<li class="card__item">
+              <img class="card__img" src="./images/photo/5.jpg" alt="Фото.5">
+              <div class="card__footer">
+                <h2 class="card__text">На чиле</h2>
+                <button class="card__like" type="button" aria-label="лайк"></button>
+              </div>
 						</li>
-						<li class="cards__item">
-							<figure class="card">
-								<img class="card__img" src="./images/photo/6.jpg" alt="Фото.6">
-								<figcaption class="card__footer">
-									<h2 class="card__text">#наудаленке</h2>
-									<button class="card__like card__like_active" type="button"></button>
-								</figcaption>
-							</figure>
+						<li class="card__item">
+              <img class="card__img" src="./images/photo/6.jpg" alt="Фото.6">
+              <div class="card__footer">
+                <h2 class="card__text">#наудаленке</h2>
+                <button class="card__like" type="button" aria-label="лайк"></button>
+              </div>
 						</li>
 					</ul>
         </section>
       </main>
       <!-- footer -->
       <footer class="footer">
-        <p class="footer__cop">© 2021 Mesto Russia</p>
+        <p class="footer__cop">&copy; 2021 Mesto Russia</p>
       </footer>
 
       <!-- popup -->
       <div class="popup popup_type_profile">
-        <form class="popup__form" action="#">
-          <button class="popup__close link" type="button"></button>
+        <div class="popup__container">
+          <button class="popup__close hover" type="button" aria-label="закрыть всплывающее окно"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__user-name input" type="text" name="username" placeholder="Имя" required>
-          <input class="popup__about-me input" type="text" name="aboutme" placeholder="О себе">
-          <button class="popup__button popup__button_type_save" type="submit">Сохранить</button>
-        </form>
+          <form class="popup__form" method="get" name="profile">
+            <input class="popup__input popup__input_type_user-name" type="text" name="username" placeholder="Имя" required>
+            <input class="popup__input popup__input_type_about-me" type="text" name="aboutme" placeholder="О себе">
+            <button class="popup__button" type="submit" aria-label="сохранить изминения">Сохранить</button>
+          </form>
+        </div>
       </div>
     </div>
 

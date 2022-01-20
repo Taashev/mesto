@@ -3,7 +3,8 @@
   margin: 0 0 0 auto;
   width: 150px;
   height: 50px;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
+  border-radius: 2px;
   background: url(../../../images/ico/add.svg) no-repeat center/22px 22px;
 }
 

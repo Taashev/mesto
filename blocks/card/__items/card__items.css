@@ -1,4 +1,4 @@
-.cards__items {
+.card__items {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 1024px) {
-  .cards__items {
+  .card__items {
     column-gap: 30px;
   }
 }

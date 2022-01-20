@@ -7,17 +7,13 @@
 @import url(../vendor/fonts/Inter/inter.css);
 
 
-/** Дефолтные стили элементов */
-/* link */
-@import url(../blocks/link/link.css);
-/* input */
-@import url(../blocks/input/input.css);
+/** Дефолтные стили элементов ============= */
+/* hover */
+@import url(../blocks/hover/hover.css);
 
 
 /* body =================================== */
 @import url(../blocks/body/body.css);
-/* _scroll */
-@import url(../blocks/body/_no-scroll/body_no-scroll.css);
 
 
 /* page =================================== */
@@ -30,10 +26,6 @@
 
 /* logo =================================== */
 @import url(../blocks/logo/logo.css);
-
-
-/* line =================================== */
-@import url(../blocks/line/line.css);
 
 
 /* content ================================ */
@@ -56,16 +48,12 @@
 @import url(../blocks/profile/__add-btn/profile__add-btn.css);
 
 
-/* cards ============================ */
-@import url(../blocks/cards/cards.css);
-/* __items */
-@import url(../blocks/cards/__items/cards__items.css);
-/* __item */
-@import url(../blocks/cards/__item/cards__item.css);
-
-
-/* card =================================== */
+/* card ============================ */
 @import url(../blocks/card/card.css);
+/* __items */
+@import url(../blocks/card/__items/card__items.css);
+/* __item */
+@import url(../blocks/card/__item/card__item.css);
 /* __img */
 @import url(../blocks/card/__img/card__img.css);
 /* __footer */
@@ -90,17 +78,19 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 /* _type_profile */
 @import url(../blocks/popup/_type/popup_type_profile.css);
+/* __container */
+@import url(../blocks/popup/__container/popup__container.css);
 /* __form */
 @import url(../blocks/popup/__form/popup__form.css);
 /* __close */
 @import url(../blocks/popup/__close/popup__close.css);
 /* __title */
 @import url(../blocks/popup/__title/popup__title.css);
-/* __user-name */
-@import url(../blocks/popup/__user-name/popup__user-name.css);
-/* __user-status */
-@import url(../blocks/popup/__about-me/popup__about-me.css);
+/* __input */
+@import url(../blocks/popup/__input/popup__input.css);
+/* __input_type_name */
+@import url(../blocks/popup/__input/_type/popup__input_type_user-name.css);
+/* __input_type_about-me */
+@import url(../blocks/popup/__input/_type/popup__input_type_about-me.css);
 /* __button */
 @import url(../blocks/popup/__button/popup__button.css);
-/* __button_type_save */
-@import url(../blocks/popup/__button/_type/popup__button_type_save.css);

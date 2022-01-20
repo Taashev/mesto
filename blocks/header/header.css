@@ -1,8 +1,8 @@
 .header {
   box-sizing: border-box;
   width: 100%;
-  min-height: 120px;
-  display: flex;
+  display: grid;
+  grid-template-rows: 120px;
   align-items: center;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
@@ -10,11 +10,6 @@
 @media (max-width: 1023px) {
   .header {
     padding: 0 27px;
-  }
-}
-
-@media (max-width: 767px) {
-  .header {
-    min-height: 82px;
+    grid-template-rows: 82px;
   }
 }

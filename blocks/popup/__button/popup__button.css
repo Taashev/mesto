@@ -1,13 +1,12 @@
 .popup__button {
   box-sizing: border-box;
   width: 100%;
-  max-width: 360px;
-  margin-top: auto;
+  margin-top: 48px;
   padding: 12px;
   border: none;
   border-radius: 2px;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1;
   text-align: center;
   color: #fff;
   background-color: #000;
@@ -21,7 +20,6 @@
 
 @media (max-width: 424px) {
   .popup__button {
-    margin-top: 50px;
     font-size: 14px;
   }
 }

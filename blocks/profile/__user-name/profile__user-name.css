@@ -1,11 +1,12 @@
 .profile__user-name {
   margin: 0;
-  max-width: 340px;
+  max-width: 294px;
   font-size: 42px;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
@@ -17,7 +18,7 @@
 
 @media (max-width: 424px) {
   .profile__user-name {
-    line-height: 1.2;
+    line-height: 1;
     font-size: 27px;
   }
 }
