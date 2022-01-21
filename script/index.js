@@ -8,13 +8,12 @@ let popup = page.querySelector('.popup');
 let popupForm = page.querySelector('.popup__form');
 let popupButtonClose = page.querySelector('.popup__close');
 // let popup edit profile
-let popupProfile = page.querySelector('.popup_type_profile');
 let popupInputName = page.querySelector('.popup__input_type_user-name');
 let popupInputAbout = page.querySelector('.popup__input_type_about-me');
 
 // popup open
 function popupOpen() {
-  popupProfile.classList.add('popup_opened');
+  popup.classList.add('popup_opened');
   popupInputName.value = userName.textContent;
   popupInputAbout.value = userAbout.textContent;
 };
