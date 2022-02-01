@@ -1,38 +1,127 @@
-let page = document.querySelector('.page');
-// let profile
-let buttonEdit = page.querySelector('.profile__edit-btn')
-let userName = page.querySelector('.profile__user-name');
-let userAbout = page.querySelector('.profile__user-about');
-// let popup
-let popup = page.querySelector('.popup');
-let popupForm = page.querySelector('.popup__form');
-let popupButtonClose = page.querySelector('.popup__close');
-// let popup edit profile
-let popupInputName = page.querySelector('.popup__input_type_user-name');
-let popupInputAbout = page.querySelector('.popup__input_type_about-me');
+const page = document.querySelector('.page');
+const buttonEdit = page.querySelector('.profile__edit-btn');
+const buttonAdd = page.querySelector('.profile__add-btn');
+const userName = page.querySelector('.profile__user-name');
+const userAbout = page.querySelector('.profile__user-about');
+const cardItems = page.querySelector('.card__items');
+const cardTemplate = document.querySelector('.card-template').content;
+const popup = page.querySelectorAll('.popup');
+const popupProfile = page.querySelector('.popup_type_profile');
+const popupPhoto = page.querySelector('.popup_type_photo');
+const popupButtonClose = page.querySelectorAll('.popup__close');
+const popupInputName = page.querySelector('.popup__input_type_user-name');
+const popupInputAbout = page.querySelector('.popup__input_type_about-me');
 
-// popup open
-function popupOpen() {
-  popup.classList.add('popup_opened');
-  popupInputName.value = userName.textContent;
-  popupInputAbout.value = userAbout.textContent;
+const initialCards = [
+  { name: 'Звездное небо',      link: 'https://images.unsplash.com/photo-1643712662909-29fe8f02b613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
+  { name: 'Взлетаем',           link: 'https://images.unsplash.com/photo-1637477144793-cd3476659b0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80' },
+  { name: 'Северное сияние',    link: 'https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
+  { name: 'Закат',              link: 'https://images.unsplash.com/photo-1584377160571-1ea5df91fc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80' },
+  { name: 'Лондонский мост',    link: 'https://images.unsplash.com/photo-1643574914412-409598704135?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
+  { name: 'Горячие источники',  link: 'https://images.unsplash.com/photo-1486108275492-35260a5d3318?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80' }
+];
+
+// card render
+const cardRender = (name, link) => {
+  const cardItem = cardTemplate.querySelector('.card__item').cloneNode(true);
+  const cardImg = cardItem.querySelector('.card__img');
+  const cardText = cardItem.querySelector('.card__text');
+  const cardLike = cardItem.querySelector('.card__like');
+  const cardTrash = cardItem.querySelector('.card__trash');
+
+  cardImg.src = link;
+  cardText.textContent = name;
+  cardLike.addEventListener('click', like);
+  cardTrash.addEventListener('click', trash);
+  cardImg.addEventListener('click', () => {
+    const popupFullscreen = page.querySelector('.popup_type_fullscreen');
+    const popupFullImg = page.querySelector('.popup__full-img');
+    const popupFullText = page.querySelector('.popup__full-text');
+
+    popupFullImg.src = cardImg.src;
+    popupFullText.textContent = cardText.textContent;
+
+    popupOpen(popupFullscreen);
+  })
+
+  return cardItem;
 };
 
-buttonEdit.addEventListener('click', popupOpen);
+// like
+const like = event => {
+  event.target.classList.toggle('card__like_active');
+};
 
-// popup close
-function popupClose() {
-  popup.classList.remove('popup_opened');
+// delete
+const trash = event => {
+  event.target.closest('.card__item').remove();
+};
+
+// add card
+const addCard = card => {
+  cardItems.prepend(card);
 }
 
-popupButtonClose.addEventListener('click', popupClose);
+initialCards.forEach( item => {
+  const card = cardRender(item.name, item.link);
 
-// handler form
-function formSubmitHandler(evt) {
+  addCard(card);
+});
+
+
+// popup open
+const popupOpen = popup =>  {
+  popup.classList.add('popup_opened');
+};
+
+buttonEdit.addEventListener('click', () => {
+  popupInputName.value = userName.textContent;
+  popupInputAbout.value = userAbout.textContent;
+
+  popupOpen(popupProfile);
+});
+
+buttonAdd.addEventListener('click', () => {
+  popupOpen(popupPhoto);
+});
+
+
+// popup close
+const popupClose = () => {
+  popup.forEach( item => {
+    item.classList.remove('popup_opened');
+  });
+};
+
+popupButtonClose.forEach( elem => {
+  elem.addEventListener('click', popupClose);
+});
+
+
+// handler form profile
+const popupFormProfile = document.querySelector('.popup__form_type_profile');
+
+const formSubmitHandlerProfile = evt => {
   evt.preventDefault();
   userName.textContent = popupInputName.value;
   userAbout.textContent = popupInputAbout.value;
+
   popupClose();
 }
+popupFormProfile.addEventListener('submit', formSubmitHandlerProfile);
 
-popupForm.addEventListener('submit', formSubmitHandler);
+//handler form photo
+const popupFormPhoto = document.querySelector('.popup__form_type_photo');
+const popupInputCardName = page.querySelector('.popup__input_type_card-name');
+const popupInputCardLink = page.querySelector('.popup__input_type_card-link');
+
+const formSubmitHandlerAddCard = evt => {
+  evt.preventDefault();
+  const card = cardRender(popupInputCardName.value, popupInputCardLink.value);
+  addCard(card);
+  popupInputCardName.value = '';
+  popupInputCardLink.value = '';
+
+  popupClose();
+};
+popupFormPhoto.addEventListener('submit', formSubmitHandlerAddCard);

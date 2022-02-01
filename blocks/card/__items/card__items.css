@@ -6,11 +6,12 @@
   grid-template-columns: repeat(auto-fit, 282px);
   row-gap: 19px;
   column-gap: 17px;
-  justify-content: center;
+  justify-content: start;
 }
 
 @media (max-width: 1024px) {
   .card__items {
     column-gap: 30px;
+    justify-content: center;
   }
 }
