@@ -1,5 +1,4 @@
 .popup {
-  display: none;
   visibility: hidden;
   opacity: 0;
   transition: .3s;
