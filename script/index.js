@@ -1,15 +1,23 @@
+const cardTemplate = document.querySelector('.card-template').content;
+const cardItems = document.querySelector('.card__items');
+
 const buttonEdit = document.querySelector('.profile__edit-btn');
 const buttonAdd = document.querySelector('.profile__add-btn');
 const userName = document.querySelector('.profile__user-name');
 const userAbout = document.querySelector('.profile__user-about');
-const cardItems = document.querySelector('.card__items');
-const cardTemplate = document.querySelector('.card-template').content;
-const popup = document.querySelectorAll('.popup');
-const popupProfile = document.querySelector('.popup_type_profile');
-const popupPhoto = document.querySelector('.popup_type_photo');
+
+const popup = document.querySelector('.popup');
 const popupButtonClose = document.querySelectorAll('.popup__close');
+
+const popupProfile = document.querySelector('.popup_type_profile');
+const popupFormProfile = document.querySelector('.popup__form_type_profile');
 const popupInputName = document.querySelector('.popup__input_type_user-name');
 const popupInputAbout = document.querySelector('.popup__input_type_about-me');
+
+const popupPhoto = document.querySelector('.popup_type_photo');
+const popupFormPhoto = document.querySelector('.popup__form_type_photo');
+const popupInputCardName = document.querySelector('.popup__input_type_card-name');
+const popupInputCardLink = document.querySelector('.popup__input_type_card-link');
 
 const initialCards = [
   {
@@ -37,6 +45,67 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1486108275492-35260a5d3318?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80'
   }
 ];
+
+
+// popup open
+const popupOpen = popup =>  {
+  popup.classList.add('popup_opened');
+};
+
+buttonEdit.addEventListener('click', () => {
+  popupInputName.value = userName.textContent;
+  popupInputAbout.value = userAbout.textContent;
+
+  popupOpen(popupProfile);
+});
+
+buttonAdd.addEventListener('click', () => {
+  popupOpen(popupPhoto);
+});
+
+
+// popup close
+const popupClose = popup => {
+  popup.target.closest('.popup').classList.remove('popup_opened');
+};
+
+popupButtonClose.forEach( item => {
+  item.addEventListener('click', popupClose);
+});
+
+
+// like
+const like = event => {
+  event.target.classList.toggle('card__like_active');
+};
+
+// delete
+const trash = event => {
+  event.target.closest('.card__item').remove();
+};
+
+
+// handler form profile
+const formSubmitHandlerProfile = evt => {
+  evt.preventDefault();
+  userName.textContent = popupInputName.value;
+  userAbout.textContent = popupInputAbout.value;
+
+  popupClose(evt);
+};
+popupFormProfile.addEventListener('submit', formSubmitHandlerProfile);
+
+//handler form photo
+const formSubmitHandlerAddCard = evt => {
+  evt.preventDefault();
+  const card = cardRender(popupInputCardName.value, popupInputCardLink.value);
+  addCard(card);
+
+  popupClose(evt);
+  popupFormPhoto.reset();
+};
+popupFormPhoto.addEventListener('submit', formSubmitHandlerAddCard);
+
 
 // card render
 const cardRender = (name, link) => {
@@ -66,81 +135,13 @@ const cardRender = (name, link) => {
   return cardItem;
 };
 
-// like
-const like = event => {
-  event.target.classList.toggle('card__like_active');
-};
-
-// delete
-const trash = event => {
-  event.target.closest('.card__item').remove();
-};
-
 // add card
 const addCard = card => {
   cardItems.prepend(card);
-}
+};
 
 initialCards.forEach( item => {
   const card = cardRender(item.name, item.link);
 
   addCard(card);
 });
-
-
-// popup open
-const popupOpen = popup =>  {
-  popup.classList.add('popup_opened');
-};
-
-buttonEdit.addEventListener('click', () => {
-  popupInputName.value = userName.textContent;
-  popupInputAbout.value = userAbout.textContent;
-
-  popupOpen(popupProfile);
-});
-
-buttonAdd.addEventListener('click', () => {
-  popupOpen(popupPhoto);
-});
-
-
-// popup close
-const popupClose = () => {
-  popup.forEach( item => {
-    item.classList.remove('popup_opened');
-  });
-};
-
-popupButtonClose.forEach( elem => {
-  elem.addEventListener('click', popupClose);
-});
-
-
-// handler form profile
-const popupFormProfile = document.querySelector('.popup__form_type_profile');
-
-const formSubmitHandlerProfile = evt => {
-  evt.preventDefault();
-  userName.textContent = popupInputName.value;
-  userAbout.textContent = popupInputAbout.value;
-
-  popupClose();
-}
-popupFormProfile.addEventListener('submit', formSubmitHandlerProfile);
-
-//handler form photo
-const popupFormPhoto = document.querySelector('.popup__form_type_photo');
-const popupInputCardName = document.querySelector('.popup__input_type_card-name');
-const popupInputCardLink = document.querySelector('.popup__input_type_card-link');
-
-const formSubmitHandlerAddCard = evt => {
-  evt.preventDefault();
-  const card = cardRender(popupInputCardName.value, popupInputCardLink.value);
-  addCard(card);
-  popupInputCardName.value = '';
-  popupInputCardLink.value = '';
-
-  popupClose();
-};
-popupFormPhoto.addEventListener('submit', formSubmitHandlerAddCard);
