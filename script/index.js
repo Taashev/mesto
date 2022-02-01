@@ -47,6 +47,7 @@ const cardRender = (name, link) => {
   const cardTrash = cardItem.querySelector('.card__trash');
 
   cardImg.src = link;
+  cardImg.alt = name;
   cardText.textContent = name;
   cardLike.addEventListener('click', like);
   cardTrash.addEventListener('click', trash);
@@ -56,6 +57,7 @@ const cardRender = (name, link) => {
     const popupFullText = document.querySelector('.popup__full-text');
 
     popupFullImg.src = cardImg.src;
+    popupFullImg.alt = cardImg.alt;
     popupFullText.textContent = cardText.textContent;
 
     popupOpen(popupFullscreen);
