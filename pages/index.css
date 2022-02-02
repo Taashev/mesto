@@ -86,6 +86,12 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 /* __close */
 @import url(../blocks/popup/__close/popup__close.css);
+/* __close_type_profile */
+@import url(../blocks/popup/__close/_type/popup__close_type_profile.css);
+/* __close_type_photo */
+@import url(../blocks/popup/__close/_type/popup__close_type_photo.css);
+/* __close_type_fullscreen */
+@import url(../blocks/popup/__close/_type/popup__close_type_fullscreen.css);
 /* __container */
 @import url(../blocks/popup/__container/popup__container.css);
 /* __contaier-fullscreen */
