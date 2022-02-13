@@ -63,12 +63,12 @@ buttonEdit.addEventListener('click', () => {
   popupInputName.value = userName.textContent;
   popupInputAbout.value = userAbout.textContent;
 
-  popupOpen(popupProfile);
+  popupOpen(popupProfile, validationConfig);
   resetValidation(popupProfile, validationConfig);
 });
 
 buttonAdd.addEventListener('click', () => {
-  popupOpen(popupPhoto);
+  popupOpen(popupPhoto, validationConfig);
   resetValidation(popupPhoto, validationConfig);
 });
 
