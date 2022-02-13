@@ -19,12 +19,10 @@ Mesto - это веб-приложение где вы можете хранит
 -----------------------------------------------
 ### В планах:
 
-* Реализовать добавление и подпись фото
-* Ставить лайк
 * Добавление фото на аватар
-* Плавное переключение попап
 -----------------------------------------------
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
+* [Ссылка на макет](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
+* [Ссылка на макет "Валидация форм"](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1)
 * [Проект](https://taashev.github.io/mesto/)
 

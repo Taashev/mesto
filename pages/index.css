@@ -108,6 +108,8 @@
 @import url(../blocks/popup/__form/_type/popup__form_type_photo.css);
 /* __title */
 @import url(../blocks/popup/__title/popup__title.css);
+/* __input-group */
+@import url(../blocks/popup/__input-group/popup__input-group.css);
 /* __input */
 @import url(../blocks/popup/__input/popup__input.css);
 /* __input_type_name */
@@ -118,5 +120,11 @@
 @import url(../blocks/popup/__input/_type/popup__input_type_card-name.css);
 /* __input_type_card-link */
 @import url(../blocks/popup/__input/_type/popup__input_type_card-link.css);
+/* __input_type_invalid */
+@import url(../blocks/popup/__input/_type/popup__input_type_invalid.css);
+/* __input-error */
+@import url(../blocks/popup/__input-error/popup__input-error.css);
 /* __button */
 @import url(../blocks/popup/__button/popup__button.css);
+/* __button_type_inactive */
+@import url(../blocks/popup/__button/_type/popup__button_type_inactive.css);

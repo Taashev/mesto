@@ -64,10 +64,12 @@ buttonEdit.addEventListener('click', () => {
   popupInputAbout.value = userAbout.textContent;
 
   popupOpen(popupProfile);
+  resetValidation(popupProfile, validationConfig);
 });
 
 buttonAdd.addEventListener('click', () => {
   popupOpen(popupPhoto);
+  resetValidation(popupPhoto, validationConfig);
 });
 
 
@@ -82,6 +84,8 @@ popupCloseProfile.addEventListener('click', () => {
 
 popupClosePhoto.addEventListener('click', () => {
     popupClose(popupPhoto);
+    popupInputCardName.value = '';
+    popupInputCardLink.value = '';
 });
 
 popupCloseFullscreen.addEventListener('click', () => {
