@@ -10,11 +10,6 @@ const popupProfile = document.querySelector('.popup_type_profile');
 const popupPhoto = document.querySelector('.popup_type_photo');
 const popupFullscreen = document.querySelector('.popup_type_fullscreen');
 
-const popupButtonClose = document.querySelector('.popup__close');
-const popupCloseProfile = document.querySelector('.popup__close_type_profile');
-const popupClosePhoto = document.querySelector('.popup__close_type_photo');
-const popupCloseFullscreen = document.querySelector('.popup__close_type_fullscreen');
-
 const popupFormProfile = document.querySelector('.popup__form_type_profile');
 const popupFormPhoto = document.querySelector('.popup__form_type_photo');
 
@@ -62,7 +57,7 @@ const openPopup = popupElement =>  {
 };
 
 // open popup edit profile
-buttonEdit.addEventListener('click', event => {
+buttonEdit.addEventListener('click', () => {
   popupInputName.value = userName.textContent;
   popupInputAbout.value = userAbout.textContent;
 
@@ -86,7 +81,7 @@ const closePopup = popupElement => {
   popupInputCardLink.value = '';
 };
 
-// popup close key Esp
+// popup close key Esc
 const closePopupEsc = event => {
   if (event.key === 'Escape') {
     closePopup(document.querySelector('.popup_opened'));
@@ -107,6 +102,8 @@ const closePopupButton = event => {
   }
 };
 
+
+// set event listener popup close
 const setEventListenerPopupClose = () => {
   const popupList = [popupProfile, popupPhoto, popupFullscreen];
 
@@ -142,7 +139,7 @@ const formSubmitHandlerProfile = evt => {
 };
 popupFormProfile.addEventListener('submit', formSubmitHandlerProfile);
 
-//handler form photo
+// handler form photo
 const formSubmitHandlerAddCard = evt => {
   evt.preventDefault();
   const card = cardRender(popupInputCardName.value, popupInputCardLink.value);
@@ -177,6 +174,7 @@ const cardRender = (name, link) => {
 
   return cardItem;
 };
+
 
 // add card
 const addCard = card => {
