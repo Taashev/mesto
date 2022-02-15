@@ -6,23 +6,24 @@ const buttonAdd = document.querySelector('.profile__add-btn');
 const userName = document.querySelector('.profile__user-name');
 const userAbout = document.querySelector('.profile__user-about');
 
-const popup = document.querySelector('.popup');
+const popupProfile = document.querySelector('.popup_type_profile');
+const popupPhoto = document.querySelector('.popup_type_photo');
+const popupFullscreen = document.querySelector('.popup_type_fullscreen');
+
 const popupButtonClose = document.querySelector('.popup__close');
 const popupCloseProfile = document.querySelector('.popup__close_type_profile');
 const popupClosePhoto = document.querySelector('.popup__close_type_photo');
 const popupCloseFullscreen = document.querySelector('.popup__close_type_fullscreen');
 
-const popupProfile = document.querySelector('.popup_type_profile');
 const popupFormProfile = document.querySelector('.popup__form_type_profile');
+const popupFormPhoto = document.querySelector('.popup__form_type_photo');
+
 const popupInputName = document.querySelector('.popup__input_type_user-name');
 const popupInputAbout = document.querySelector('.popup__input_type_about-me');
 
-const popupPhoto = document.querySelector('.popup_type_photo');
-const popupFormPhoto = document.querySelector('.popup__form_type_photo');
 const popupInputCardName = document.querySelector('.popup__input_type_card-name');
 const popupInputCardLink = document.querySelector('.popup__input_type_card-link');
 
-const popupFullscreen = document.querySelector('.popup_type_fullscreen');
 const popupFullImg = document.querySelector('.popup__full-img');
 const popupFullText = document.querySelector('.popup__full-text');
 
@@ -55,42 +56,68 @@ const initialCards = [
 
 
 // popup open
-const popupOpen = popup =>  {
-  popup.classList.add('popup_opened');
+const openPopup = popupElement =>  {
+  popupElement.classList.add('popup_opened');
+  document.addEventListener('keyup', closePopupEsc);
 };
 
-buttonEdit.addEventListener('click', () => {
+// open popup edit profile
+buttonEdit.addEventListener('click', event => {
   popupInputName.value = userName.textContent;
   popupInputAbout.value = userAbout.textContent;
 
-  popupOpen(popupProfile, validationConfig);
+  openPopup(popupProfile);
   resetValidation(popupProfile, validationConfig);
 });
 
+// open popup add photo
 buttonAdd.addEventListener('click', () => {
-  popupOpen(popupPhoto, validationConfig);
+  openPopup(popupPhoto);
   resetValidation(popupPhoto, validationConfig);
 });
 
 
 // popup close
-const popupClose = popup => {
-  popup.classList.remove('popup_opened');
+const closePopup = popupElement => {
+  popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keyup', closePopupEsc);
+
+  popupInputCardName.value = '';
+  popupInputCardLink.value = '';
 };
 
-popupCloseProfile.addEventListener('click', () => {
-    popupClose(popupProfile);
-});
+// popup close key Esp
+const closePopupEsc = event => {
+  if (event.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+};
 
-popupClosePhoto.addEventListener('click', () => {
-    popupClose(popupPhoto);
-    popupInputCardName.value = '';
-    popupInputCardLink.value = '';
-});
+// popup close click overlay
+const closePopupOverlay = event => {
+  if (event.target.classList.contains('popup')) {
+    closePopup(event.target);
+  }
+};
 
-popupCloseFullscreen.addEventListener('click', () => {
-    popupClose(popupFullscreen);
-});
+// popup close click button
+const closePopupButton = event => {
+  if (event.target.classList.contains('popup__close')) {
+    closePopup(event.currentTarget);
+  }
+};
+
+const setEventListenerPopupClose = () => {
+  const popupList = [popupProfile, popupPhoto, popupFullscreen];
+
+  popupList.forEach(popupElement => {
+    popupElement.addEventListener('click', event => {
+      closePopupOverlay(event);
+      closePopupButton(event);
+    });
+  });
+};
+setEventListenerPopupClose();
 
 
 // like
@@ -107,10 +134,11 @@ const trash = event => {
 // handler form profile
 const formSubmitHandlerProfile = evt => {
   evt.preventDefault();
+  evt.currentTarget.propaga
   userName.textContent = popupInputName.value;
   userAbout.textContent = popupInputAbout.value;
 
-  popupClose(popupProfile);
+  closePopup(popupProfile);
 };
 popupFormProfile.addEventListener('submit', formSubmitHandlerProfile);
 
@@ -120,7 +148,7 @@ const formSubmitHandlerAddCard = evt => {
   const card = cardRender(popupInputCardName.value, popupInputCardLink.value);
   addCard(card);
 
-  popupClose(popupPhoto);
+  closePopup(popupPhoto);
   popupFormPhoto.reset();
 };
 popupFormPhoto.addEventListener('submit', formSubmitHandlerAddCard);
@@ -144,7 +172,7 @@ const cardRender = (name, link) => {
     popupFullImg.alt = cardImg.alt;
     popupFullText.textContent = cardText.textContent;
 
-    popupOpen(popupFullscreen);
+    openPopup(popupFullscreen);
   })
 
   return cardItem;
