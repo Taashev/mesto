@@ -6,6 +6,7 @@ const buttonAdd = document.querySelector('.profile__add-btn');
 const userName = document.querySelector('.profile__user-name');
 const userAbout = document.querySelector('.profile__user-about');
 
+const popup = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPhoto = document.querySelector('.popup_type_photo');
 const popupFullscreen = document.querySelector('.popup_type_fullscreen');
@@ -21,33 +22,6 @@ const popupInputCardLink = document.querySelector('.popup__input_type_card-link'
 
 const popupFullImg = document.querySelector('.popup__full-img');
 const popupFullText = document.querySelector('.popup__full-text');
-
-const initialCards = [
-  {
-    name: 'Звездное небо',
-    link: 'https://images.unsplash.com/photo-1643712662909-29fe8f02b613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Взлетаем',
-    link: 'https://images.unsplash.com/photo-1637477144793-cd3476659b0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80'
-  },
-  {
-    name: 'Северное сияние',
-    link: 'https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Закат',
-    link: 'https://images.unsplash.com/photo-1584377160571-1ea5df91fc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80'
-  },
-  {
-    name: 'Лондонский мост',
-    link: 'https://images.unsplash.com/photo-1643574914412-409598704135?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Горячие источники',
-    link: 'https://images.unsplash.com/photo-1486108275492-35260a5d3318?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80'
-  }
-];
 
 
 // popup open
@@ -69,6 +43,9 @@ buttonEdit.addEventListener('click', () => {
 buttonAdd.addEventListener('click', () => {
   openPopup(popupPhoto);
   resetValidation(popupPhoto, validationConfig);
+
+  popupInputCardName.value = '';
+  popupInputCardLink.value = '';
 });
 
 
@@ -76,9 +53,6 @@ buttonAdd.addEventListener('click', () => {
 const closePopup = popupElement => {
   popupElement.classList.remove('popup_opened');
   document.removeEventListener('keyup', closePopupEsc);
-
-  popupInputCardName.value = '';
-  popupInputCardLink.value = '';
 };
 
 // popup close key Esc
@@ -105,7 +79,7 @@ const closePopupButton = event => {
 
 // set event listener popup close
 const setEventListenerPopupClose = () => {
-  const popupList = [popupProfile, popupPhoto, popupFullscreen];
+  const popupList = Array.from(popup);
 
   popupList.forEach(popupElement => {
     popupElement.addEventListener('click', event => {
@@ -180,9 +154,3 @@ const cardRender = (name, link) => {
 const addCard = card => {
   cardItems.prepend(card);
 };
-
-initialCards.forEach( item => {
-  const card = cardRender(item.name, item.link);
-
-  addCard(card);
-});
