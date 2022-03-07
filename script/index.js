@@ -1,7 +1,7 @@
 // import
 import * as data from './data.js';
 import {FormValidator} from './FormValidator.js';
-import {Card} from './card.js';
+import {Card} from './Card.js';
 import { initialCards} from './cardDefault.js';
 
 
