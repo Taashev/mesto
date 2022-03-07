@@ -1,32 +1,78 @@
-const initialCards = [
-  {
-    name: 'Звездное небо',
-    link: 'https://images.unsplash.com/photo-1643712662909-29fe8f02b613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Взлетаем',
-    link: 'https://images.unsplash.com/photo-1637477144793-cd3476659b0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80'
-  },
-  {
-    name: 'Северное сияние',
-    link: 'https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Закат',
-    link: 'https://images.unsplash.com/photo-1584377160571-1ea5df91fc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80'
-  },
-  {
-    name: 'Лондонский мост',
-    link: 'https://images.unsplash.com/photo-1643574914412-409598704135?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Горячие источники',
-    link: 'https://images.unsplash.com/photo-1486108275492-35260a5d3318?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80'
-  }
-];
+// import
+import {popupFullImg, popupFullText, popupFullscreen} from './data.js';
+import {openPopup} from './index.js';
 
-initialCards.forEach( item => {
-  const card = cardRender(item.name, item.link);
 
-  addCard(card);
-});
+// calss Card
+class Card {
+  constructor(text, image, cardSelector) {
+    this._text = text;
+    this._image = image;
+    this._cardSelector = cardSelector;
+  };
+
+  // clone card
+  _getTemplate() {
+    const card = document
+    .querySelector(this._cardSelector)
+    .content
+    .querySelector('.card__item')
+    .cloneNode(true);
+
+    return card;
+  };
+
+  // like card
+  _handleLike() {
+    this._elementLike.classList.toggle('card__like_active');
+  };
+
+  // delete card
+  _handleDelete() {
+    this._elementDelete.closest('.card__item').remove();
+  };
+
+  // open image fullscreen
+  _handleImageFullscreen() {
+    popupFullImg.src = this._elementImg.src;
+    popupFullImg.alt = this._elementImg.alt;
+    popupFullText.textContent = this._elementText.textContent;
+
+    openPopup(popupFullscreen);
+  };
+
+  // set event listener
+  _setEventListener() {
+    this._elementLike.addEventListener('click', () => {
+      this._handleLike();
+    });
+
+    this._elementDelete.addEventListener('click', () => {
+      this._handleDelete();
+    });
+
+    this._elementImg.addEventListener('click', () => {
+      this._handleImageFullscreen();
+    });
+  };
+
+  // finished Card
+  renderCard() {
+    this._element = this._getTemplate();
+    this._elementImg = this._element.querySelector('.card__img');
+    this._elementText = this._element.querySelector('.card__text');
+    this._elementLike = this._element.querySelector('.card__like');
+    this._elementDelete = this._element.querySelector('.card__trash');
+
+    this._elementImg.src = this._image;
+    this._elementImg.alt = this._text;
+    this._elementText.textContent = this._text;
+    this._setEventListener();
+
+    return this._element;
+  };
+};
+
+
+// export
+export {Card};
