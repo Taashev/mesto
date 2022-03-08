@@ -1,14 +1,10 @@
-// import
-import {popupFullImg, popupFullText, popupFullscreen} from './data.js';
-import {openPopup} from './index.js';
-
-
 // calss Card
 class Card {
-  constructor(text, image, cardSelector) {
+  constructor(text, image, cardSelector, handleCardClick) {
     this._text = text;
     this._image = image;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   };
 
   // clone card
@@ -32,15 +28,6 @@ class Card {
     this._elementDelete.closest('.card__item').remove();
   };
 
-  // open image fullscreen
-  _handleImageFullscreen() {
-    popupFullImg.src = this._elementImg.src;
-    popupFullImg.alt = this._elementImg.alt;
-    popupFullText.textContent = this._elementText.textContent;
-
-    openPopup(popupFullscreen);
-  };
-
   // set event listener
   _setEventListener() {
     this._elementLike.addEventListener('click', () => {
@@ -52,8 +39,9 @@ class Card {
     });
 
     this._elementImg.addEventListener('click', () => {
-      this._handleImageFullscreen();
+      this._handleCardClick(this._text, this._image);
     });
+
   };
 
   // finished Card
