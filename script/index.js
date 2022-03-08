@@ -95,7 +95,7 @@ data.popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 // handler form photo
 const handlePhotoFormSubmit = evt => {
   evt.preventDefault();
-  const card = creatCard(data.popupInputCardName.value, data.popupInputCardLink.value, '.card-template');
+  const card = creatCard(data.popupInputCardName.value, data.popupInputCardLink.value);
   addCard(card);
 
   closePopup(data.popupPhoto);
@@ -115,8 +115,8 @@ const handleCardClick = (text, image) => {
 
 
 // creat Card
-const creatCard = (text, image, cardTemplate) => {
-  const card = new Card(text, image, cardTemplate, handleCardClick);
+const creatCard = (text, image) => {
+  const card = new Card(text, image, '.card-template', handleCardClick);
   const cardElement = card.renderCard();
   return cardElement;
 };
@@ -128,6 +128,6 @@ const addCard = (card) => {
 
 // initial card default
 initialCards.forEach(item => {
-  const card = creatCard(item.text, item.image, '.card-template', handleCardClick);
+  const card = creatCard(item.text, item.image);
   addCard(card);
 });
