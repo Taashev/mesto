@@ -1,5 +1,5 @@
 // class Form Validator
-class FormValidator {
+export default class FormValidator {
   constructor(formElement, config) {
     this._formElement = formElement;
     this._inputSelector = config.inputSelector;
@@ -106,7 +106,3 @@ class FormValidator {
     });
   };
 };
-
-
-// export
-export {FormValidator};
