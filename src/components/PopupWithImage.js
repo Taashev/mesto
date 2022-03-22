@@ -1,5 +1,7 @@
+// import
 import Popup from './Popup.js';
 
+// class popup fullscreen image
 export default class PopupWithImage extends Popup {
   constructor(popupSelector, text, image) {
     super(popupSelector);
@@ -7,6 +9,7 @@ export default class PopupWithImage extends Popup {
     this._text = text;
   }
 
+  // open popup
   open() {
     super.open();
     this._popup.querySelector('.popup__full-img').src = this._image;
@@ -14,6 +17,7 @@ export default class PopupWithImage extends Popup {
     this._popup.querySelector('.popup__full-text').textContent = this._text;
   };
 
+  // set event listener
   setEventListener() {
     super.setEventListener();
   };

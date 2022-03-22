@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     <title>Mesto</title>
   </head>
   <body class="body">
@@ -13,13 +13,13 @@
     <div class="page">
       <!-- header -->
       <header class="header">
-        <img class="logo" src="./images/logo.svg" alt="логотип 'Mesto'">
+        <img class="logo" src="<%=require('./images/logo.svg')%>" alt="логотип 'Mesto'">
       </header>
       <!-- main -->
       <main class="content">
         <!-- profile -->
         <section class="profile">
-          <img class="profile__img" src="./images/photo.jpg" alt="Аватарка">
+          <img class="profile__img" src="<%=require('./images/photo.jpg')%>" alt="Аватарка">
           <div class="profile__info">
             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
             <button class="profile__edit-btn hover" type="button" aria-label="редактировать профиль"></button>
@@ -98,12 +98,12 @@
 
 
     <!-- script -->
-    <script type="module" src="./utils/constants.js"></script>
+    <!-- <script type="module" src="./utils/constants.js"></script>
     <script type="module" src="./pages/index.js"></script>
     <script type="module" src="./components/FormValidator.js"></script>
     <script type="module" src="./components/Card.js"></script>
     <script type="module" src="./utils/cardDefault.js"></script>
     <script type="module" src="./components/Popup.js"></script>
-    <script type="module" src="./components/UserInfo.js"></script>
+    <script type="module" src="./components/UserInfo.js"></script> -->
   </body>
 </html>
