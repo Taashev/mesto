@@ -3,18 +3,16 @@ import Popup from './Popup.js';
 
 // class popup fullscreen image
 export default class PopupWithImage extends Popup {
-  constructor(popupSelector, text, image) {
+  constructor(popupSelector) {
     super(popupSelector);
-    this._image = image;
-    this._text = text;
   }
 
   // open popup
-  open() {
+  open(text, image) {
     super.open();
-    this._popup.querySelector('.popup__full-img').src = this._image;
-    this._popup.querySelector('.popup__full-img').alt = this._text;
-    this._popup.querySelector('.popup__full-text').textContent = this._text;
+    this._popup.querySelector('.popup__full-img').src = image;
+    this._popup.querySelector('.popup__full-img').alt = text;
+    this._popup.querySelector('.popup__full-text').textContent = text;
   };
 
   // set event listener

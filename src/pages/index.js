@@ -16,6 +16,11 @@ import importImage from '../utils/importImage.js';
 const userInfo = new UserInfo (constants.userName, constants.userAbout);
 
 
+// popup fullscreen
+const popupFullImg = new PopupWithImage(constants.popupFullscreen);
+popupFullImg.setEventListener();
+
+
 // validation form profile
 const validatorFormProfile = new FormValidator('.popup__form_type_profile', constants.validationConfig);
 validatorFormProfile.enableValidation();
@@ -23,23 +28,6 @@ validatorFormProfile.enableValidation();
 // validation form photo
 const validatorFormPhoto = new FormValidator('.popup__form_type_photo', constants.validationConfig);
 validatorFormPhoto.enableValidation();
-
-
-// open popup edit profile
-constants.buttonEdit.addEventListener('click', () => {
-  constants.popupInputName.value = userInfo.getUserInfo().name;
-  constants.popupInputAbout.value = userInfo.getUserInfo().about;
-
-  validatorFormProfile.resetValidation();
-  popupProfile.open();
-});
-
-
-// open popup add photo
-constants.buttonAdd.addEventListener('click', () => {
-  validatorFormPhoto.resetValidation();
-  popupPhoto.open();
-});
 
 
 // Popup Profile
@@ -74,11 +62,26 @@ const popupPhoto = new PopupWithForm({
 popupPhoto.setEventListener();
 
 
+// open popup edit profile
+constants.buttonEdit.addEventListener('click', () => {
+  constants.popupInputName.value = userInfo.getUserInfo().name;
+  constants.popupInputAbout.value = userInfo.getUserInfo().about;
+
+  validatorFormProfile.resetValidation();
+  popupProfile.open();
+});
+
+
+// open popup add photo
+constants.buttonAdd.addEventListener('click', () => {
+  validatorFormPhoto.resetValidation();
+  popupPhoto.open();
+});
+
+
 // handleCardClick
 const handleCardClick = (text, image) => {
-  const popupFullImg = new PopupWithImage(constants.popupFullscreen, text, image);
-  popupFullImg.open();
-  popupFullImg.setEventListener();
+  popupFullImg.open(text, image);
 };
 
 

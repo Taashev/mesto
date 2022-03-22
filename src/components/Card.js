@@ -25,7 +25,8 @@ export default class Card {
 
   // delete card
   _handleDelete() {
-    this._elementDelete.closest('.card__item').remove();
+    this._element.remove();
+    this._element = null;
   };
 
   // set event listener
