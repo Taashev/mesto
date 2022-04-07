@@ -34,6 +34,8 @@
 
 /* profile ================================ */
 @import url(../blocks/profile/profile.css);
+/* __img-wraper */
+@import url(../blocks/profile/__img-wraper/profile__img-wraper.css);
 /* __img */
 @import url(../blocks/profile/__img/profile__img.css);
 /* __info */
@@ -62,10 +64,14 @@
 @import url(../blocks/card/__footer/card__footer.css);
 /* __text */
 @import url(../blocks/card/__text/card__text.css);
+/* __like-wraper */
+@import url(../blocks/card/__like-wraper/card__like-wraper.css);
 /* __like */
 @import url(../blocks/card/__like/card__like.css);
 /* __like_active */
 @import url(../blocks/card/__like/_active/card__like_active.css);
+/* __counter-like */
+@import url(../blocks/card/__counter/card__counter.css);
 
 
 /* footer ================================= */
@@ -78,10 +84,14 @@
 @import url(../blocks/popup/popup.css);
 /* _type_profile */
 @import url(../blocks/popup/_type/popup_type_profile.css);
+/* _type_update-avatar */
+@import url(../blocks/popup/_type/popup_type_update-avatar.css);
 /* _type_photo */
 @import url(../blocks/popup/_type/popup_type_photo.css);
 /* _type_fullcsreen */
 @import url(../blocks/popup/_type/popup_type_fullscreen.css);
+/* _type_card-delete */
+@import url(../blocks/popup/_type/popup_type_card-delete.css);
 /* _opened */
 @import url(../blocks/popup/_opened/popup_opened.css);
 /* __close */
