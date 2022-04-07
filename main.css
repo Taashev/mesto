@@ -7,7 +7,8 @@
 .logo{height:33px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:142px}@media (max-width:424px){.logo{height:24px;width:103px}}
 @media (max-width:1023px){.content{padding:0 19px}}
 .profile{align-items:center;box-sizing:border-box;display:flex;gap:31px;padding-top:43px}@media (max-width:767px){.profile{flex-direction:column;gap:25px;padding-top:45px}}
-.profile__img{border-radius:50%;display:block;height:120px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:120px}
+.profile__img-wraper{border-radius:50%;cursor:pointer;height:120px;position:relative;width:120px}.profile__img-wraper:before{background:rgba(0,0,0,.8) url(f0dd9c51cf799b8b82d2.svg) no-repeat 50%/26px 26px;border-radius:inherit;content:"";height:100%;left:0;opacity:0;position:absolute;top:0;transition:.2s;width:100%}.profile__img-wraper:hover:before{opacity:1}
+.profile__img{border-radius:inherit;display:block;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:100%}
 .profile__info{align-items:baseline;-moz-column-gap:19px;column-gap:19px;display:grid;grid-template-columns:1fr 24px;row-gap:10px}@media (max-width:767px){.profile__info{-moz-column-gap:10px;column-gap:10px;grid-template-columns:18px 1fr 18px;margin-bottom:6px;text-align:center}}
 .profile__user-name{font-size:42px;font-weight:500;line-height:1.14;margin:0;max-width:294px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:767px){.profile__user-name{font-size:31px;grid-column:2/auto}}@media (max-width:424px){.profile__user-name{font-size:27px;line-height:1.22}}
 .profile__user-about{font-size:18px;grid-column:1/-1;line-height:1.22;margin:0;max-width:336px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:424px){.profile__user-about{font-size:14px;grid-column:2/auto;line-height:1.21}}
@@ -20,14 +21,18 @@
 .card__img{border-radius:10px 10px 0 0;display:block;height:282px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:282px}.card__img:hover{cursor:pointer}
 .card__footer{align-items:center;background:#fff;border-radius:0 0 10px 10px;box-sizing:border-box;display:grid;gap:15px;grid-template-columns:1fr 22px;grid-template-rows:80px;justify-content:space-between;padding:0 21px}
 .card__text{color:#000;font-size:24px;font-weight:900;line-height:1;margin:0;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card__like-wraper{align-items:center;display:flex;flex-direction:column;gap:3px}
 .card__like{background:url(1ad06e85f169668a1f36.svg) no-repeat 50%/cover;border:none;cursor:pointer;height:19px;padding:0;transition:.2s;width:22px}.card__like:hover{opacity:.5}
 .card__like_active{background:url(35948469632d0421d697.svg) no-repeat 50%/cover}.card__like_active:hover{opacity:1}
+.card__counter{color:#000;font-size:13px;line-height:1.23;text-align:center;white-space:nowrap}
 .footer{margin-top:auto;padding:69px 0 60px}@media (max-width:1023px){.footer{padding:51px 19px}}
 .footer__cop{color:#545454;font-size:18px;line-height:1.22;margin:0}@media (max-width:424px){.footer__cop{font-size:14px;line-height:1.21}}
 .popup{align-items:center;background:rgba(0,0,0,.5);box-sizing:border-box;display:flex;height:100%;justify-content:center;left:0;min-height:100vh;min-width:320px;opacity:0;padding:0 19px;position:fixed;top:0;transition:.3s;visibility:hidden;width:100%}
 
 
+
 .popup_type_fullscreen{background:rgba(0,0,0,.9)}
+.popup_type_card-delete .popup__title{margin:0 0 38px}.popup_type_card-delete .popup__button{margin:0}
 .popup_opened{opacity:1;visibility:visible}
 .popup__close{background:url(039f1f5203f653b4bacd.svg) no-repeat 50%/cover;border:none;height:32px;padding:0;position:absolute;right:-38px;top:-38px;width:32px}@media (max-width:767px){.popup__close{height:20px;right:0;width:20px}}
 .popup__container{background:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;max-width:430px;padding:35px;position:relative;width:100%}@media (max-width:767px){.popup__container{padding:25px 22px}}
