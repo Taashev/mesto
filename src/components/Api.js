@@ -1,15 +1,14 @@
 export default class Api {
-  constructor() {
+  constructor(options) {
+    this._baseUrl = options.baseUrl;
+    this._headers = options.headers;
   }
 
   // request
   _request(path, method, {...body}) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-39/${path}`, {
+    return fetch(this._baseUrl + path, {
       method: method || 'GET',
-      headers: {
-        authorization: 'b52f2582-d828-40bf-8301-f8f9457aa9d0',
-        'Content-type': 'application/json'
-      },
+      headers: this._headers,
       ...body
     })
       .then(res => {
@@ -17,7 +16,6 @@ export default class Api {
 
         return Promise.reject(res.status);
       })
-      .catch(err => console.error(`Ошибка: ${err}`))
   };
 
 

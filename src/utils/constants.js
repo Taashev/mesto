@@ -16,7 +16,6 @@ export const popupFullscreen = document.querySelector('.popup_type_fullscreen');
 
 export const popupInputName = document.querySelector('.popup__input_type_user-name');
 export const popupInputAbout = document.querySelector('.popup__input_type_about-me');
-export const popupInputAvatar = document.querySelector('.popup__input_type_avatar');
 
 
 // config selector validation form

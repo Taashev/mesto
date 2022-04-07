@@ -13,7 +13,13 @@ import Api from '../components/Api.js';
 
 
 // api
-const api = new Api();
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-39/',
+  headers: {
+    authorization: 'b52f2582-d828-40bf-8301-f8f9457aa9d0',
+    'Content-type': 'application/json'
+  }
+});
 
 // user id
 let userId;
@@ -120,8 +126,6 @@ popupCardDelete.setEventListener();
 
 // open popup avatar
 constants.buttonAvatar.addEventListener('click', () => {
-  constants.popupInputAvatar.value = userInfo.getUserInfo().avatar;
-
   validatorFormAvatar.resetValidation();
   popupAvatar.open();
 })
@@ -233,21 +237,4 @@ Promise.all([getUserInfo, getCards])
     .reverse()
     .forEach(item => cardAdd.renderItems([item]))
   )
-
-
-//   api.getUserInfo().then(res => {
-//     userInfo.setUserInfo({
-//       name: res.name,
-//       about: res.about
-//     });
-//     userInfo.setUserAvatar(res.avatar);
-
-//     userId = res._id;
-//   })
-//   .catch(err => console.error(`Ошибка: ${err}`))
-
-// api.getCards().then(res => res
-//     .reverse()
-//     .forEach(item => cardAdd.renderItems([item]))
-//   )
-//   .catch(err => console.error(`Ошибка: ${err}`))
+  .catch(err => console.error(`Ошибка: ${err}`))
